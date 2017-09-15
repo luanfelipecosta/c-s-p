@@ -57,7 +57,7 @@ const InvestmentCharacteristics = ({ step, prevStep, nextStep, maxStep, selectCh
     </View>
     <View style={styles.list}>
       <ScrollView>
-        <TouchableOpacity onPress={(type = 'conservador') => Actions.investmentSimulation()}>
+        <TouchableOpacity onPress={(type = 'moderado') => selectChar(type)}>
           <View style={{ maxWidth: screenWidth - 30, height: 170, flexDirection: 'row', marginBottom: 25 }}>
             <View style={{ maxWidth: (screenWidth) / 2, backgroundColor: 'white', flexGrow: 1, paddingLeft: 15, paddingBottom: 15, justifyContent: 'flex-end' }} >
               <Text style={{ fontWeight: '500', marginBottom: 10 }}>Investimento </Text>
