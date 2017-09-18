@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Button, TouchableHighlight, Alert } from 'react-native';
+import { Text, View, Slider, Alert, StyleSheet } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
@@ -13,28 +13,44 @@ class InvestmentTime extends Component {
     this.state = {
       maxStep: 6,
       step: 4,
+      investmentTime: 2.5,
+      investmentHumanTime: '2 anos e meio',
     };
   }
+  generateHumanTime(time) {
+    const years = Math.floor(time);
+    const remaining = (time - Math.floor(time));
+    const text = `${years} anos ${remaining > 0 ? 'e meio' : ''}`;
 
+    this.setState({ investmentHumanTime: text });
+  }
   render() {
     return (
       <View style={AppStyles.container} >
         <Grid>
-          <Row style={{ paddingHorizontal: 15, paddingTop: 40, flexDirection: 'column' }}>
+          <Row style={{ paddingHorizontal: 20, alignItems: 'center', paddingTop: 40, flexDirection: 'column' }}>
 
             <Text style={[AppStyles.sceneTitle, AppStyles.lightText, { alignSelf: 'center', textAlign: 'center' }]}>
               Por quanto tempo você deseja investir
             </Text>
 
             <Spacer size={40} />
-            <FormInput
-              type={'money'}
-              theme={'dark'}
-              label={'Quero Investir R$:'}
-              placeholder={'R$ 0,00'}
-              value={this.state.sellValue}
-              onChange={sellValue => this.setState({ sellValue })}
+            <Slider
+              minimumValue={1}
+              maximumValue={10}
+              style={{ width: 300 }}
+              minimumTrackTintColor={'#41ff89'}
+              maximumTrackTintColor={'#41ff89'}
+              thumbTintColor={'#fff'}
+              step={0.5}
+              value={this.state.investmentTime}
+              onValueChange={investmentTime => this.generateHumanTime(investmentTime)}
+              onSlidingComplete={() => { }}
             />
+            <Spacer size={10} />
+
+            <Text style={{ color: '#fff', fontSize: 10 }}> {this.state.investmentHumanTime} </Text>
+
 
           </Row>
           <Row style={{ height: 64 }}>

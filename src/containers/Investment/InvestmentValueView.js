@@ -42,7 +42,7 @@ class InvestmentValue extends Component {
               step={this.state.step}
               maxStep={this.state.maxStep}
               prevStep={() => Actions.pop()}
-              nextStep={() => Alert.alert('teste')}
+              nextStep={() => Actions.investmentTime()}
             />
           </Row>
           <KeyboardSpacer />
