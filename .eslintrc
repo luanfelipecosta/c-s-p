@@ -2,7 +2,7 @@
   "extends": "airbnb",
   "parser": "babel-eslint",
   "ecmaFeatures": {
-    "classes": true
+    "classes": true,
   },
   "rules": {
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
@@ -13,5 +13,5 @@
     "import/no-unresolved": "off",
     "jsx-a11y/href-no-hash": "off",
     "jsx-a11y/img-has-alt": "off"
-  }
+  },
 }

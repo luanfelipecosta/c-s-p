@@ -1,7 +1,3 @@
-/**
- * App Theme
- *
- */
 
 import AppColors from './colors';
 import AppFonts from './fonts';

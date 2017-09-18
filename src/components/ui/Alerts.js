@@ -6,6 +6,9 @@
       success={'Hello Success'}
       status={'Something\'s happening...'}
     />
+ *
+ * React Native Starter App
+ * https://github.com/mcnamee/react-native-starter-app
  */
 import React from 'react';
 import PropTypes from 'prop-types';

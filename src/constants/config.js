@@ -1,6 +1,4 @@
-/**
- * Global App Config
- */
+
 /* global __DEV__ */
 import { AppColors, AppStyles, AppSizes } from '@theme/';
 

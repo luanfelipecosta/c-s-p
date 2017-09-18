@@ -1,7 +1,3 @@
-/**
- * Sign Up Container
- *
- */
 import { connect } from 'react-redux';
 
 // Actions

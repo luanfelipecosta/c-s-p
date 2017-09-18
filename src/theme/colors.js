@@ -1,44 +1,47 @@
-/**
- * App Theme - Colors
- */
-
 const app = {
-  background: '#0A0333',
+  background: '#E9EBEE',
+  backgroundDark: '#0A0333',
+  backgroundLight: '#FFF',
   cardBackground: '#FFFFFF',
   listItemBackground: '#FFFFFF',
+};
+
+const cashfly = {
+
 };
 
 const brand = {
   brand: {
     primary: '#3D30E3',
-    secondary: '#17233D',
-    accent: '#41ff89',
+    secondary: '#9ED131',
+    accent: '#9ED131',
     light: '#A3A3A3',
   },
 };
 
 const text = {
-  textPrimary: '#000',
+  textPrimary: '#222222',
   textSecondary: '#777777',
   headingPrimary: brand.brand.primary,
   headingSecondary: brand.brand.primary,
 };
 
 const borders = {
-  border: '#171717',
+  border: '#D0D1D5',
 };
 
 const tabbar = {
   tabbar: {
-    background: '#000',
+    background: '#ffffff',
     iconDefault: '#BABDC2',
-    iconSelected: brand.brand.accent,
+    iconSelected: brand.brand.primary,
   },
 };
 
 export default {
   ...app,
   ...brand,
+  ...cashfly,
   ...text,
   ...borders,
   ...tabbar,

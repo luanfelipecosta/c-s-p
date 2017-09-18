@@ -1,6 +1,8 @@
 /**
  * UI Elements
  *
+ * React Native Starter App
+ * https://github.com/mcnamee/react-native-starter-app
  */
 
 import Alerts from './Alerts';
@@ -13,10 +15,9 @@ import List from './List';
 import ListItem from './ListItem';
 import FormInput from './FormInput';
 import FormLabel from './FormLabel';
-import FormValidationMessage from './FormValidationMessage';
-import PinInput from './PinInput';
-import WalletCard from './WalletCard';
 import BalanceCard from './BalanceCard';
+import WalletCard from './WalletCard';
+import FormValidationMessage from './FormValidationMessage';
 
 export {
   Alerts,
@@ -30,7 +31,6 @@ export {
   FormInput,
   FormLabel,
   FormValidationMessage,
-  PinInput,
   WalletCard,
   BalanceCard,
 };

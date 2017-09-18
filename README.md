@@ -1,8 +1,5 @@
 
-# Cashfly
-
---- 
-## Docs
+# Docs
 
 1. [Features](#features)
 1. **Before you start**
@@ -10,10 +7,15 @@
    1. [React Native Quick Tips](/docs/quick-tips.md)
    1. [Understanding the File Structure](#understanding-the-file-structure)
    1. [Opinions Guiding this Project](/docs/opinions.md)
-1. **Using project**
+1. **Using RNSK**
+   1. [Getting Up and Running with RNSK](#getting-started)
+   1. [Renaming the App from StarterKit](/docs/renaming.md)
    1. [Routing / Navigating](/src/navigation/README.md)
    1. [Using Google Analytics](/docs/google-analytics.md)
    1. [Interacting with the Firebase API](https://firebase.google.com/docs/database/web/start)
+   1. [Testing](/docs/testing.md)
+1. [Contributing](/docs/contributing.md)
+1. [Licence](LICENSE)
 
 ---
 
@@ -38,7 +40,7 @@
 ## Getting Started
 
 1. Ensure you've followed the [React Native - Get Started Guide](https://facebook.github.io/react-native/docs/getting-started.html) for the platform/s of choice
-1. Clone this project
+1. Clone this project `git clone https://github.com/mcnamee/react-native-starter-app.git`
 1. Run `npm install` from root directory
 1. Create your own .env file (to store any app secrets) - simply run `cp .env.sample .env`
 1. [Setup your own Firebase API to get the full experience](#the-api--testing-out-authentication) (optional)

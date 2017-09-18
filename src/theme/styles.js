@@ -1,8 +1,3 @@
-/**
- * App Styles
- *
- */
-
 import Colors from './colors';
 import Fonts from './fonts';
 import Sizes from './sizes';
@@ -14,10 +9,8 @@ export default {
 
   // Default
   container: {
-    position: 'relative',
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: Colors.background,
   },
   containerCentered: {
     justifyContent: 'center',
@@ -32,14 +25,12 @@ export default {
   leftAligned: {
     alignItems: 'flex-start',
   },
-  HorizontalCenterAligned: {
+  centerAligned: {
     justifyContent: 'center',
+    alignItems: 'center',
   },
   rightAligned: {
     alignItems: 'flex-end',
-  },
-  verticalCenterAligned: {
-    alignItems: 'center',
   },
 
   // Text Styles
@@ -219,22 +210,14 @@ export default {
   flex6: {
     flex: 6,
   },
-  // Wallet
-  wallet: {
-    navbar: {
-      backgroundColor: Colors.brand.primary,
-      borderBottomWidth: 0,
-    },
-  },
-  home: {
-    navbar: {
-      backgroundColor: '#000',
-      borderBottomWidth: 0,
-    },
-  },
+
   // Navbar
   navbar: {
     backgroundColor: Colors.brand.primary,
+    borderBottomWidth: 0,
+  },
+  homeNavbar: {
+    backgroundColor: '#000',
     borderBottomWidth: 0,
   },
   navbarTitle: {
@@ -243,21 +226,32 @@ export default {
     fontFamily: Fonts.base.family,
     fontSize: Fonts.base.size,
   },
-  darkNavbar: {
-    background: '#0A0333',
-  },
   navbarButton: {
     tintColor: '#ffffff',
   },
 
   // TabBar
   tabbar: {
-    backgroundColor: Colors.tabbar.background,
-    borderTopWidth: 1,
+    backgroundColor: '#000',
   },
-  
-  // CostumerShopView
-  costumerShopView: {
-
+  tabbarIcon: {
+    iconDefault: '#BABDC2',
+    iconSelected: Colors.brand.secondary,
+  },
+  // button prosseguir container
+  fowardButtonContainer: {
+    height: 48,
+  },
+  fowardButton: {
+    backgroundColor: Colors.brand.secondary,
+    width: Sizes.screen.width,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  sceneTitle: {
+    fontSize: 20,
+  },
+  semiBoldText: {
+    fontWeight: '500',
   },
 };

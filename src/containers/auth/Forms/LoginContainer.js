@@ -1,7 +1,3 @@
-/**
- * Login Container
- *
- */
 import { connect } from 'react-redux';
 
 // Actions

@@ -1,6 +1,3 @@
-/**
- * Firebase Reference/Init
- */
 import * as Firebase from 'firebase';
 import {
   API_KEY,
@@ -9,14 +6,7 @@ import {
   STORAGE_BUCKET,
   MESSAGING_SENDER_ID,
 } from 'react-native-dotenv';
-// const config = {
-//   API_KEY: 'AIzaSyC3LyLp4FCl8oyZAJmRrySSBB12raCv0-c',
-//   AUTH_DOMAIN: 'cashfly-f6aff.firebaseapp.com',
-//   DATABASE_URL: 'https://cashfly-f6aff.firebaseio.com',
-//   PROJECT_ID: 'cashfly-f6aff',
-//   STORAGE_BUCKET: 'cashfly-f6aff.appspot.com',
-//   MESSAGING_SENDER_ID: '679083363399',
-// };
+
 let firebaseInitialized = false;
 
 if (

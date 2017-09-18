@@ -1,8 +1,3 @@
-/**
- * Loading Screen
- *
-     <Loading text={'Server is down'} />
- */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, ActivityIndicator } from 'react-native';

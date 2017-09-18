@@ -1,6 +1,3 @@
-/**
- * App Theme - Fonts
- */
 import { Platform } from 'react-native';
 
 function lineHeight(fontSize) {

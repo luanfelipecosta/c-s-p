@@ -1,5 +1,8 @@
 /**
  * App Theme - Sizes
+ *
+ * React Native Starter App
+ * https://github.com/mcnamee/react-native-starter-app
  */
 import { Dimensions, Platform } from 'react-native';
 
@@ -21,7 +24,7 @@ export default {
   },
   navbarHeight: (Platform.OS === 'ios') ? 64 : 54,
   statusBarHeight: (Platform.OS === 'ios') ? 16 : 0,
-  tabbarHeight: 51,
+  tabbarHeight: 50,
 
   padding: 20,
   paddingSml: 10,

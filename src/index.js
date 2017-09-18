@@ -1,9 +1,4 @@
-/**
- * Index - this is where everything
- *  starts - but offloads to app.js
- *
- *
- */
+
 /* global __DEV__ */
 import React from 'react';
 import { applyMiddleware, compose, createStore } from 'redux';

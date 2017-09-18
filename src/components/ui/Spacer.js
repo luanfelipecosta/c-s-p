@@ -3,6 +3,8 @@
  *
     <Spacer size={10} />
  *
+ * React Native Starter App
+ * https://github.com/mcnamee/react-native-starter-app
  */
 import React from 'react';
 import PropTypes from 'prop-types';

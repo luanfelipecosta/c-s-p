@@ -1,6 +1,3 @@
-/**
- * App Navigation
- */
 import React from 'react';
 import { Actions, Scene, ActionConst } from 'react-native-router-flux';
 
@@ -15,7 +12,6 @@ import AppLaunch from '@containers/Launch/LaunchContainer';
 import Placeholder from '@components/general/Placeholder';
 import AuthScenes from './auth';
 import TabsScenes from './tabs';
-
 /* Routes ==================================================================== */
 export default Actions.create(
   <Scene key={'root'} {...AppConfig.navbarProps}>
@@ -30,9 +26,9 @@ export default Actions.create(
     {AuthScenes}
 
     {/* Main App */}
-    <Scene key={'app'} {...AppConfig.navbarProps} title={AppConfig.appName} type={ActionConst.RESET}>
+    <Scene key={'app'} {...AppConfig.navbarProps} title={AppConfig.appName} hideNavBar={false} type={ActionConst.RESET}>
       {/* Drawer Side Menu */}
-      <Scene key={'home'} component={Drawer} initial={'tabBar'}>
+      <Scene key={'home'} component={Drawer} initial={'homePage'}>
         {/* Tabbar */}
         {TabsScenes}
       </Scene>

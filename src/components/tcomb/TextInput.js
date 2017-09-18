@@ -1,6 +1,3 @@
-/**
- * Text Input template for tcomb
- */
 import React from 'react';
 import { View } from 'react-native';
 

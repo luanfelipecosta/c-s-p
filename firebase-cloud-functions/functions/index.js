@@ -2,6 +2,8 @@
  * React Native Starter Kit - Firebase Cloud Functions
  * - A collection of example cloud functions to use with this project
  *
+ * React Native Starter App
+ * https://github.com/mcnamee/react-native-starter-app
  */
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
@@ -11,7 +13,7 @@ admin.initializeApp(functions.config().firebase);
 /**
   * Listens for updates to /users/:userId and creates an
   * full name attribute based on the first and last names
-  * */
+  */
 exports.cleanUserData = functions.database.ref('/users/{userId}').onWrite((event) => {
   console.log('Making Full Name for UserID:', event.params.userId);
 

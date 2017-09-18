@@ -16,7 +16,7 @@ const TabIcon = ({ icon, selected, type }) => (
     name={icon}
     size={26}
     type={type || 'material'}
-    color={selected ? AppColors.tabbar.iconSelected : AppColors.tabbar.iconDefault}
+    color={selected ? '#9ED131' : '#BABDC2'}
   />
 );
 

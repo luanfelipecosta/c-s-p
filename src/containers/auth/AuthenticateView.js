@@ -1,8 +1,3 @@
-/**
- * Authenticate Screen
- *  - Entry screen for all authentication
- *  - User can tap to login, forget password, signup...
- */
 import React, { Component } from 'react';
 import {
   View,
@@ -20,12 +15,12 @@ import { Spacer, Text, Button } from '@ui/';
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
   background: {
-    backgroundColor: '#0A0333',
+    backgroundColor: AppColors.brand.primary,
     height: AppSizes.screen.height,
     width: AppSizes.screen.width,
   },
   logo: {
-    width: AppSizes.screen.width * 0.65,
+    width: AppSizes.screen.width * 0.85,
     resizeMode: 'contain',
   },
   whiteText: {
@@ -44,29 +39,26 @@ class Authenticate extends Component {
         style={[styles.logo]}
       />
 
-
       <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
         <View style={[AppStyles.flex1]}>
           <Button
-            title={'CRIAR CONTA'}
-            onPress={Actions.signUp}
-            raised={false}
-            color={'#0A0333'}
-            backgroundColor={AppColors.brand.accent}
+            title={'Login'}
+            icon={{ name: 'lock' }}
+            onPress={Actions.login}
+            backgroundColor={'#CB009E'}
           />
         </View>
       </View>
 
-      <Spacer size={20} />
+      <Spacer size={10} />
 
       <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
         <View style={[AppStyles.flex1]}>
           <Button
-            title={'LOGIN'}
-            color={'#0A0333'}
-            onPress={Actions.login}
-            raised={false}
-            backgroundColor={AppColors.brand.accent}
+            title={'Sign up'}
+            icon={{ name: 'face' }}
+            onPress={Actions.signUp}
+            backgroundColor={'#CB009E'}
           />
         </View>
       </View>
@@ -74,7 +66,7 @@ class Authenticate extends Component {
       <Spacer size={15} />
 
       <Text p style={[AppStyles.textCenterAligned, styles.whiteText]}>
-        - ou -
+        - or -
       </Text>
 
       <Spacer size={10} />
@@ -84,11 +76,10 @@ class Authenticate extends Component {
         <View style={[AppStyles.flex2]}>
           <Button
             small
-            title={'Pular'}
+            title={'Skip'}
             onPress={Actions.app}
             raised={false}
-            backgroundColor={'#0A0333'}
-            color={AppColors.brand.accent}
+            backgroundColor={'rgba(255,255,255,0.2)'}
           />
         </View>
         <View style={[AppStyles.flex1]} />

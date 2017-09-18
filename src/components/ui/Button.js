@@ -3,6 +3,8 @@
  *
      <Button text={'Server is down'} />
  *
+ * React Native Starter App
+ * https://github.com/mcnamee/react-native-starter-app
  */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -17,7 +19,6 @@ class CustomButton extends Component {
     small: PropTypes.bool,
     large: PropTypes.bool,
     outlined: PropTypes.bool,
-    color: PropTypes.string,
     backgroundColor: PropTypes.string,
     onPress: PropTypes.func,
     icon: PropTypes.shape({
@@ -30,7 +31,6 @@ class CustomButton extends Component {
     large: false,
     outlined: false,
     icon: {},
-    color: null,
     backgroundColor: null,
     onPress: null,
   }
@@ -40,7 +40,7 @@ class CustomButton extends Component {
     const props = {
       title: 'Coming Soon...',
       color: '#fff',
-      fontWeight: '500',
+      fontWeight: 'bold',
       onPress: this.props.onPress,
       fontFamily: AppFonts.base.family,
       fontSize: AppFonts.base.size,
@@ -103,9 +103,6 @@ class CustomButton extends Component {
           ...props.icon,
         };
       }
-    }
-    if (this.props.color) {
-      props.color = this.props.color;
     }
 
     return props;

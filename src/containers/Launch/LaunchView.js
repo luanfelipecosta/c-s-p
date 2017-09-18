@@ -1,10 +1,3 @@
-/**
- * Launch Screen
- *  - Shows a nice loading screen whilst:
- *    - Preloading any specified app content
- *    - Checking if user is logged in, and redirects from there
- *
- */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -73,5 +66,5 @@ class AppLaunch extends Component {
   );
 }
 
-/* Export Component  */
+/* Export Component ==================================================================== */
 export default AppLaunch;
