@@ -7,12 +7,12 @@ import { Spacer } from '@ui/';
 import { FormInput, StepNavigation } from '@cashflyUI/';
 import { AppStyles, AppColors, AppSizes } from '@theme/';
 
-class SellValueView extends Component {
+class InvestmentUserAge extends Component {
   constructor(props) {
     super(props);
     this.state = {
       maxStep: 6,
-      step: 1,
+      step: 2,
     };
   }
 
@@ -22,15 +22,17 @@ class SellValueView extends Component {
         <Grid>
           <Row style={{ paddingHorizontal: 15, paddingTop: 40, flexDirection: 'column' }}>
 
-            <Text style={[AppStyles.sceneTitle, AppStyles.lightText, { alignSelf: 'center', textAlign: 'center' }]}> Oi, como você gostaria de ser chamado? </Text>
+            <Text style={[AppStyles.sceneTitle, AppStyles.lightText, { alignSelf: 'center', textAlign: 'center' }]}>
+              {`Legal ${this.props.nome || 'John Doe'}, nos fale qual sua idade`}
+            </Text>
 
             <Spacer size={40} />
             <FormInput
-              type={'custom'}
-              label={'Digite seu nome:'}
-              placeholder={'Como podemos te chamar?'}
-              value={this.state.sellValue}
+              type={'only-numbers'}
               theme={'dark'}
+              label={'Sua idade:'}
+              placeholder={'Quantos anos você tem?'}
+              value={this.state.sellValue}
               onChange={sellValue => this.setState({ sellValue })}
             />
 
@@ -39,8 +41,8 @@ class SellValueView extends Component {
             <StepNavigation
               step={this.state.step}
               maxStep={this.state.maxStep}
-              firstStep
-              nextStep={() => Actions.investmentUserAge({ nome: this.state.sellValue })}
+              prevStep={() => Actions.pop()}
+              nextStep={() => Actions.investmentValue()}
             />
           </Row>
           <KeyboardSpacer />
@@ -50,4 +52,4 @@ class SellValueView extends Component {
   }
 }
 
-export default SellValueView;
+export default InvestmentUserAge;

@@ -27,6 +27,13 @@ import SellCostumerCPF from '@containers/toSell/SellCostumerCPF/SellCostumerCPFV
 import SellCashflyCode from '@containers/toSell/CashflyCode/CashflyCodeView';
 
 import InvestmentHome from '@containers/Investment/InvestmentHomeView';
+import InvestmentUserAge from '@containers/Investment/InvestmentUserAgeView';
+import InvestmentValue from '@containers/Investment/InvestmentValueView';
+import InvestmentTime from '@containers/Investment/InvestmentTimeView';
+import InvestmentCharacteristics from '@containers/Investment/InvestmentCharacteristicsView';
+import InvestmentObjective from '@containers/Investment/InvestmentObjectiveView';
+import InvestmentSimulation from '@containers/Investment/InvestmentSimulationView';
+
 
 import PaybackValue from '@containers/sendPayback/PaybackValue/PaybackValueView';
 import PaybackCashflyCode from '@containers/sendPayback/CashflyCode/CashflyCodeView';
@@ -65,7 +72,7 @@ const navbarPropsTabsDarkTheme = {
     paddingTop: AppSizes.tabbarHeight,
   },
   renderRightButton: () => <View style={{ flexDirection: 'row' }}><Text style={{ color: '#fff', fontSize: 20, fontWeight: '700' }}>CASH</Text><Text style={{ color: '#fff', fontSize: 20, fontWeight: '500' }}>FLY</Text></View>,
-  renderBackButton: () => <Icon onPress={() => Actions.homePage()} name={'arrow-back'} color={'#fff'} size={30} />,
+  renderLeftButton: () => <Icon onPress={() => Actions.homePage()} name={'arrow-back'} color={'#fff'} size={30} />,
 };
 
 /* Routes ==================================================================== */
@@ -146,7 +153,6 @@ const scenes = (
       icon={props => TabIcon({ ...props, type: 'entypo', icon: 'shopping-bag' })}
       analyticsDesc={'Error: Example Error'}
     />
-
     <Scene
       key={'investment'}
       title={'Style Guide'}
@@ -158,10 +164,44 @@ const scenes = (
         key={'investmentHome'}
         {...navbarPropsTabsDarkTheme}
         component={InvestmentHome}
-        icon={props => TabIcon({ ...props, type: 'entypo', icon: 'shopping-bag' })}
         analyticsDesc={'Error: Example Error'}
       />
 
+      <Scene
+        key={'investmentUserAge'}
+        {...navbarPropsTabsDarkTheme}
+        component={InvestmentUserAge}
+      />
+
+      <Scene
+        key={'investmentValue'}
+        {...navbarPropsTabsDarkTheme}
+        component={InvestmentValue}
+      />
+
+      <Scene
+        key={'investmentTime'}
+        {...navbarPropsTabsDarkTheme}
+        component={InvestmentTime}
+      />
+
+      <Scene
+        key={'investmentCharacteristics'}
+        {...navbarPropsTabsDarkTheme}
+        component={InvestmentCharacteristics}
+      />
+
+      <Scene
+        key={'investmentObjective'}
+        {...navbarPropsTabsDarkTheme}
+        component={InvestmentObjective}
+      />
+
+      <Scene
+        key={'investmentSimulation'}
+        {...navbarPropsTabsDarkTheme}
+        component={InvestmentSimulation}
+      />
 
     </Scene>
   </Scene>

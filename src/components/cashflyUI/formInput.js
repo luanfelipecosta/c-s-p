@@ -59,19 +59,20 @@ const FormInput = ({ type, placeholder, onChange, value, theme, label }) => (
       style={{
         fontSize: 10,
         marginBottom: 3,
-        color: '#767676',
+        color: (theme === 'dark') ? '#5d5875' : '#767676',
       }}
     >
       {label}
     </Text>
-    <View style={{ borderBottomWidth: 1, borderBottomColor: '#AEAEAE' }}>
+    <View style={{ borderBottomWidth: 1, borderBottomColor: (theme === 'dark') ? '#5d5875' : '#AEAEAE' }}>
       <TextInputMask
         type={type}
         placeholder={placeholder}
-        placeholderTextColor={(theme === 'light') ? '#7a7a7a' : 'rbga(255, 255, 255, 0.4)'}
+        placeholderTextColor={(theme === 'dark') ? '#5d5875' : 'rbga(255, 255, 255, 0.4)'}
         style={{
           width: 280,
           height: 25,
+          color: (theme === 'dark') ? '#fff' : '#161616',
         }}
         onChangeText={val => onChange(val)}
         value={value}
