@@ -57,7 +57,7 @@ class ValueConfirmationView extends Component {
                 <Spacer size={15} />
                 <View style={[AppStyles.row, { justifyContent: 'flex-end' }]}>
                   <Button text={'ADICIONAR'} onPress={() => { this.setModalVisible(false); Actions.sellCostumerCPF({ sellValue: this.props.sellValue }); }} />
-                  <Button text={'CANCELAR'} onPress={() => this.setState({ CPFByPassed: true, modalVisible: false })} />
+                  <Button text={'CANCELAR'} onPress={() => this.setState({ CPFByPassed: true, modalVisible: false }, Actions.sellCashflyCode())} />
                 </View>
               </View>
             }

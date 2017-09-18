@@ -220,6 +220,10 @@ export default {
     backgroundColor: '#000',
     borderBottomWidth: 0,
   },
+  darkNavbar: {
+    backgroundColor: Colors.brand.darkBackground,
+    borderBottomWidth: 0,
+  },
   navbarTitle: {
     color: '#ffffff',
     fontWeight: 'bold',
@@ -250,6 +254,9 @@ export default {
   },
   sceneTitle: {
     fontSize: 20,
+  },
+  lightText: {
+    color: '#fff',
   },
   semiBoldText: {
     fontWeight: '500',

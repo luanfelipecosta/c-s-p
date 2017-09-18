@@ -4,6 +4,7 @@ const app = {
   backgroundLight: '#FFF',
   cardBackground: '#FFFFFF',
   listItemBackground: '#FFFFFF',
+  inputColorDark: '#5d5875',
 };
 
 const cashfly = {
@@ -16,12 +17,15 @@ const brand = {
     secondary: '#9ED131',
     accent: '#9ED131',
     light: '#A3A3A3',
+    darkBackground: '#0A0333',
   },
 };
 
 const text = {
   textPrimary: '#222222',
   textSecondary: '#777777',
+  textLight: '#fff',
+  placeholderLight: '#5d5875',
   headingPrimary: brand.brand.primary,
   headingSecondary: brand.brand.primary,
 };

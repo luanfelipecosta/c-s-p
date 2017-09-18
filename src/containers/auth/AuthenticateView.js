@@ -15,13 +15,14 @@ import { Spacer, Text, Button } from '@ui/';
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
   background: {
-    backgroundColor: AppColors.brand.primary,
+    backgroundColor: AppColors.brand.darkBackground,
     height: AppSizes.screen.height,
     width: AppSizes.screen.width,
   },
   logo: {
     width: AppSizes.screen.width * 0.85,
     resizeMode: 'contain',
+    alignSelf: 'center',
   },
   whiteText: {
     color: '#FFF',
@@ -33,56 +34,57 @@ class Authenticate extends Component {
   static componentName = 'Authenticate';
 
   render = () => (
-    <View style={[AppStyles.containerCentered, AppStyles.container, styles.background]}>
+    <View style={[AppStyles.container, AppStyles.container, styles.background, { justifyContent: 'space-between' }]}>
       <Image
         source={require('../../images/logo.png')}
         style={[styles.logo]}
       />
-
-      <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
-        <View style={[AppStyles.flex1]}>
-          <Button
-            title={'Login'}
-            icon={{ name: 'lock' }}
-            onPress={Actions.login}
-            backgroundColor={'#CB009E'}
-          />
+      <View>
+        <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
+          <View style={[AppStyles.flex1]}>
+            <Button
+              title={'CRIAR CONTA'}
+              color={'#000'}
+              onPress={Actions.signUp}
+              backgroundColor={AppColors.brand.secondary}
+            />
+          </View>
         </View>
-      </View>
 
-      <Spacer size={10} />
+        <Spacer size={20} />
 
-      <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
-        <View style={[AppStyles.flex1]}>
-          <Button
-            title={'Sign up'}
-            icon={{ name: 'face' }}
-            onPress={Actions.signUp}
-            backgroundColor={'#CB009E'}
-          />
+        <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
+          <View style={[AppStyles.flex1]}>
+            <Button
+              title={'LOGIN'}
+              color={'#000'}
+              backgroundColor={AppColors.brand.secondary}
+            />
+          </View>
         </View>
-      </View>
 
-      <Spacer size={15} />
+        <Spacer size={15} />
 
-      <Text p style={[AppStyles.textCenterAligned, styles.whiteText]}>
-        - or -
+        <Text p style={[AppStyles.textCenterAligned, styles.whiteText]}>
+          - or -
       </Text>
 
-      <Spacer size={10} />
+        <Spacer size={10} />
 
-      <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
-        <View style={[AppStyles.flex1]} />
-        <View style={[AppStyles.flex2]}>
-          <Button
-            small
-            title={'Skip'}
-            onPress={Actions.app}
-            raised={false}
-            backgroundColor={'rgba(255,255,255,0.2)'}
-          />
+        <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
+          <View style={[AppStyles.flex1]} />
+          <View style={[AppStyles.flex2]}>
+            <Button
+              small
+              title={'Skip'}
+              color={AppColors.brand.secondary}
+              onPress={Actions.app}
+              raised={false}
+              backgroundColor={'transparent'}
+            />
+          </View>
+          <View style={[AppStyles.flex1]} />
         </View>
-        <View style={[AppStyles.flex1]} />
       </View>
 
       <Spacer size={40} />

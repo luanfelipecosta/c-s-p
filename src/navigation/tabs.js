@@ -1,22 +1,20 @@
 
 import React from 'react';
 import { Icon } from 'react-native-elements';
+import { Text, View } from 'react-native';
 import { Scene, Actions } from 'react-native-router-flux';
 
 // Consts and Libs
 import { AppConfig } from '@constants/';
-import { AppStyles, AppSizes } from '@theme/';
+import { AppStyles, AppSizes, AppColors } from '@theme/';
 
 // Components
 import { TabIcon } from '@ui/';
 import { NavbarMenuButton } from '@containers/ui/NavbarMenuButton/NavbarMenuButtonContainer';
 
 // Scenes
-import Placeholder from '@components/general/Placeholder';
 import Error from '@components/general/Error';
 import StyleGuide from '@containers/StyleGuideView';
-import Recipes from '@containers/recipes/Browse/BrowseContainer';
-import RecipeView from '@containers/recipes/RecipeView';
 
 // Scenes 
 import HomePage from '@containers/HomePage/HomePageView';
@@ -28,12 +26,14 @@ import ValueConfirmation from '@containers/toSell/ValueConfirmation/ValueConfirm
 import SellCostumerCPF from '@containers/toSell/SellCostumerCPF/SellCostumerCPFView';
 import SellCashflyCode from '@containers/toSell/CashflyCode/CashflyCodeView';
 
+import InvestmentHome from '@containers/Investment/InvestmentHomeView';
+
 import PaybackValue from '@containers/sendPayback/PaybackValue/PaybackValueView';
 import PaybackCashflyCode from '@containers/sendPayback/CashflyCode/CashflyCodeView';
 
 const navbarPropsTabs = {
   ...AppConfig.navbarProps,
-  renderLeftButton: () => <Icon onPress={() => Actions.homePage()} name={'arrow-back'} color={'#fff'} size={30} />,  
+  renderLeftButton: () => <Icon onPress={() => Actions.homePage()} name={'arrow-back'} color={'#fff'} size={30} />,
   sceneStyle: {
     ...AppConfig.navbarProps.sceneStyle,
     paddingBottom: 0,
@@ -49,6 +49,23 @@ const navbarPropsTabsHome = {
     ...AppConfig.navbarProps.sceneStyle,
     paddingBottom: AppSizes.tabbarHeight,
   },
+};
+
+const navbarPropsTabsLogoCross = {
+  ...navbarPropsTabs,
+  renderBackButton: () => <View style={{ flexDirection: 'row' }}><Text style={{ color: '#fff', fontSize: 20, fontWeight: '700' }}>CASH</Text><Text style={{ color: '#fff', fontSize: 20, fontWeight: '500' }}>FLY</Text></View>,
+  renderRightButton: () => <Icon onPress={() => Actions.homePage()} name={'close'} color={'#fff'} size={30} />,
+};
+
+const navbarPropsTabsDarkTheme = {
+  ...navbarPropsTabs,
+  navigationBarStyle: AppStyles.darkNavbar,
+  sceneStyle: {
+    backgroundColor: AppColors.backgroundDark,
+    paddingTop: AppSizes.tabbarHeight,
+  },
+  renderRightButton: () => <View style={{ flexDirection: 'row' }}><Text style={{ color: '#fff', fontSize: 20, fontWeight: '700' }}>CASH</Text><Text style={{ color: '#fff', fontSize: 20, fontWeight: '500' }}>FLY</Text></View>,
+  renderBackButton: () => <Icon onPress={() => Actions.homePage()} name={'arrow-back'} color={'#fff'} size={30} />,
 };
 
 /* Routes ==================================================================== */
@@ -93,13 +110,15 @@ const scenes = (
         title={'Realizar Venda'}
       />
       <Scene
-        {...AppConfig.navbarProps}
+        {...navbarPropsTabsLogoCross}
         key={'sellCashflyCode'}
         component={SellCashflyCode}
       />
     </Scene>
 
     <Scene
+      {...navbarPropsTabs}
+      hideTabBar
       key={'sendPayback'}
       icon={props => TabIcon({ ...props, type: 'material-community', icon: 'coin' })}
       analyticsDesc={'Placeholder: Coming Soon'}
@@ -129,13 +148,22 @@ const scenes = (
     />
 
     <Scene
-      key={'styleGuide'}
-      {...navbarPropsTabs}
+      key={'investment'}
       title={'Style Guide'}
-      component={StyleGuide}
+      hideTabBar
       icon={props => TabIcon({ ...props, type: 'material-community', icon: 'bank' })}
       analyticsDesc={'StyleGuide: Style Guide'}
-    />
+    >
+      <Scene
+        key={'investmentHome'}
+        {...navbarPropsTabsDarkTheme}
+        component={InvestmentHome}
+        icon={props => TabIcon({ ...props, type: 'entypo', icon: 'shopping-bag' })}
+        analyticsDesc={'Error: Example Error'}
+      />
+
+
+    </Scene>
   </Scene>
 );
 

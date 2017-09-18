@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Button, TouchableHighlight, ActivityIndicator, Alert } from 'react-native';
+import { Text, View, Button, TouchableHighlight } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
@@ -7,13 +7,10 @@ import { Spacer } from '@ui/';
 import { FormInput } from '@cashflyUI/';
 import { AppStyles, AppColors, AppSizes } from '@theme/';
 
-class SellCostumerCPFView extends Component {
+class SellValueView extends Component {
   constructor(props) {
     super(props);
-    this.state = { loading: false };
-  }
-  loadAndGo() {
-    this.setState({ loading: true }, () => setTimeout(() => this.setState({ loading: false }, Actions.sellCashflyCode()), 1000));
+    this.state = {};
   }
 
   render() {
@@ -22,23 +19,21 @@ class SellCostumerCPFView extends Component {
         <Grid>
           <Row style={{ paddingLeft: 15, paddingTop: 40, flexDirection: 'column' }}>
 
-            <Text style={AppStyles.semiBoldText}> CPF do cliente: </Text>
+            <Text style={[AppStyles.sceneTitle, AppStyles.lightText, { alignSelf: 'center', textAlign: 'center' }]}> Oi, como você gostaria de ser chamado? </Text>
 
-            <Spacer size={70} />
+            <Spacer size={40} />
             <FormInput
-              type={'cpf'}
+              type={'custom'}
               theme={'light'}
-              label={'CPF do cliente:'}
-              placeholder={'123.456.789-00'}
+              label={'Digite seu nome:'}
+              placeholder={'Como podemos te chamar?'}
               value={this.state.sellValue}
-              onChange={() => { }}
+              onChange={sellValue => this.setState({ sellValue })}
             />
-
-            {!!this.state.loading && <ActivityIndicator size={'large'} color={'gray'} style={{ position: 'absolute', bottom: 50, alignSelf: 'center' }} />}
 
           </Row>
           <Row style={AppStyles.fowardButtonContainer}>
-            <TouchableHighlight style={AppStyles.fowardButton} onPress={() => this.loadAndGo()} >
+            <TouchableHighlight style={AppStyles.fowardButton} onPress={() => Actions.sellValueConfirmation({ sellValue: this.state.sellValue })} >
               <Text style={{ fontWeight: '500' }}> PROSSEGUIR </Text>
             </TouchableHighlight>
           </Row>
@@ -49,4 +44,4 @@ class SellCostumerCPFView extends Component {
   }
 }
 
-export default SellCostumerCPFView;
+export default SellValueView;
