@@ -33,6 +33,7 @@ import InvestmentTime from '@containers/Investment/InvestmentTimeView';
 import InvestmentCharacteristics from '@containers/Investment/InvestmentCharacteristicsView';
 import InvestmentObjective from '@containers/Investment/InvestmentObjectiveView';
 import InvestmentSimulation from '@containers/Investment/InvestmentSimulationView';
+import InvestmentTaxes from '@containers/Investment/InvestmentTaxesView';
 
 
 import PaybackValue from '@containers/sendPayback/PaybackValue/PaybackValueView';
@@ -199,8 +200,15 @@ const scenes = (
 
       <Scene
         key={'investmentSimulation'}
-        {...navbarPropsTabsDarkTheme}
+        {...navbarPropsTabs}
         component={InvestmentSimulation}
+      />
+
+      <Scene
+        key={'investmentTaxes'}
+        title={'Taxas'}
+        {...navbarPropsTabs}
+        component={InvestmentTaxes}
       />
 
     </Scene>

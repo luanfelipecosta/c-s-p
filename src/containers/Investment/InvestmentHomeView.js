@@ -7,7 +7,7 @@ import { Spacer } from '@ui/';
 import { FormInput, StepNavigation } from '@cashflyUI/';
 import { AppStyles, AppColors, AppSizes } from '@theme/';
 
-class SellValueView extends Component {
+class InvestmentHome extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -50,4 +50,4 @@ class SellValueView extends Component {
   }
 }
 
-export default SellValueView;
+export default InvestmentHome;

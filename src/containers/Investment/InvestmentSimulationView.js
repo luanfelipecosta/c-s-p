@@ -1,11 +1,34 @@
 import React, { Component } from 'react';
-import { Text, View, Button, TouchableHighlight, Alert } from 'react-native';
+import { Text, View, Button, TouchableHighlight, StyleSheet, ScrollView, Image, Alert } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import { Spacer } from '@ui/';
-import { FormInput, StepNavigation } from '@cashflyUI/';
+import { FormInput, StepNavigation, InvestmentRow } from '@cashflyUI/';
 import { AppStyles, AppColors, AppSizes } from '@theme/';
+import { Avatar } from 'react-native-elements';
+
+const styles = StyleSheet.create({
+  graphWrapper: {
+    height: 210,
+    paddingHorizontal: 15,
+    paddingTop: 25,
+    paddingBottom: 15,
+    flexDirection: 'column',
+  },
+  financeStatusWrapper: {
+    height: 30,
+    flexDirection: 'row',
+    backgroundColor: AppColors.brand.primary,
+    justifyContent: 'space-between',
+    paddingHorizontal: 60,
+    alignItems: 'center',
+  },
+  financeText: {
+    color: '#fff',
+    fontWeight: '500',
+  },
+});
 
 class InvestmentSimulation extends Component {
   constructor(props) {
@@ -20,32 +43,85 @@ class InvestmentSimulation extends Component {
     return (
       <View style={AppStyles.container} >
         <Grid>
-          <Row style={{ paddingHorizontal: 15, paddingTop: 40, flexDirection: 'column' }}>
-
-            <Text style={[AppStyles.sceneTitle, AppStyles.lightText, { alignSelf: 'center', textAlign: 'center' }]}>
-              Qual a caracteristica do seu investimento?
-            </Text>
-
-            <Spacer size={40} />
-            <FormInput
-              type={'money'}
-              theme={'dark'}
-              label={'Quero Investir R$:'}
-              placeholder={'R$ 0,00'}
-              value={this.state.sellValue}
-              onChange={sellValue => this.setState({ sellValue })}
-            />
-
+          <Row style={{
+            height: 210,
+            paddingHorizontal: 15,
+            paddingTop: 25,
+            paddingBottom: 15,
+            flexDirection: 'column',
+          }}
+          >
+            <Image style={{ alignSelf: 'center' }} source={require('../../images/graph.png')} />
           </Row>
-          <Row style={{ height: 64 }}>
-            <StepNavigation
-              step={this.state.step}
-              maxStep={this.state.maxStep}
-              prevStep={() => Actions.pop()}
-              nextStep={() => Alert.alert('teste')}
-            />
+          <Row style={{
+            height: 72,
+            flexDirection: 'row',
+            backgroundColor: AppColors.brand.primary,
+            justifyContent: 'space-between',
+            paddingHorizontal: 60,
+            alignItems: 'center',
+          }}
+          >
+            <Text style={styles.financeText} >Posição financeira</Text>
+            <Text style={styles.financeText} >R$ 20.000,00</Text>
           </Row>
-          <KeyboardSpacer />
+
+          <Row>
+            <ScrollView>
+              <InvestmentRow
+                color={'blue'}
+                title={'Titulo de aplicação'}
+                subtitle={'0.0% do total'}
+                rightText={'R$ 0.000,00'}
+              />
+              <InvestmentRow
+                color={'red'}
+                title={'Titulo de aplicação'}
+                subtitle={'0.0% do total'}
+                rightText={'R$ 0.000,00'}
+              />
+              <InvestmentRow
+                title={'Titulo de aplicação'}
+                subtitle={'0.0% do total'}
+                rightText={'R$ 0.000,00'}
+              />
+              <InvestmentRow
+                color={'yellow'}
+                title={'Titulo de aplicação'}
+                subtitle={'0.0% do total'}
+                rightText={'R$ 0.000,00'}
+              />
+              <InvestmentRow
+                color={'blue'}
+                title={'Titulo de aplicação'}
+                subtitle={'0.0% do total'}
+                rightText={'R$ 0.000,00'}
+              />
+              <InvestmentRow
+                color={'green'}
+                title={'Titulo de aplicação'}
+                subtitle={'0.0% do total'}
+                rightText={'R$ 0.000,00'}
+              />
+              <InvestmentRow
+                color={'red'}
+                title={'Titulo de aplicação'}
+                subtitle={'0.0% do total'}
+                rightText={'R$ 0.000,00'}
+              />
+              <InvestmentRow
+                color={'blue'}
+                title={'Titulo de aplicação'}
+                subtitle={'0.0% do total'}
+                rightText={'R$ 0.000,00'}
+              />
+            </ScrollView>
+          </Row>
+          <Row style={AppStyles.fowardButtonContainer}>
+            <TouchableHighlight style={AppStyles.fowardButton} onPress={() => Actions.investmentObjective()} >
+              <Text style={{ fontWeight: '500' }}> PROSSEGUIR </Text>
+            </TouchableHighlight>
+          </Row>
         </Grid>
       </View>
     );

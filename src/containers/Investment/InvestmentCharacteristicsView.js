@@ -28,19 +28,19 @@ class InvestmentCharacteristics extends Component {
           <Row size={7} style={{ paddingHorizontal: 20 }}>
             <ScrollView>
               <InvestmentTile
-                onPress={() => Actions.investmentObjective()}
+                onPress={() => Actions.investmentSimulation({ title: 'Investimento conservador' })}
                 title={'Investimento'}
                 bigTitle={'conservador'}
                 description={'Retornos consistentes privilegiando a segurança'}
               />
               <InvestmentTile
-                onPress={() => Actions.investmentObjective()}
+                onPress={() => Actions.investmentSimulation({ title: 'Investimento moderado' })}
                 title={'Investimento'}
                 bigTitle={'moderado'}
                 description={'Retornos consistentes privilegiando a segurança'}
               />
               <InvestmentTile
-                onPress={() => Actions.investmentObjective()}
+                onPress={() => Actions.investmentSimulation({ title: 'Investimento arrojado' })}
                 title={'Investimento'}
                 bigTitle={'arrojado'}
                 description={'Retornos consistentes privilegiando a segurança'}
