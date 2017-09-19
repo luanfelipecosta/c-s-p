@@ -5,7 +5,8 @@ import { Col, Row, Grid } from 'react-native-easy-grid';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import { Spacer } from '@ui/';
 import { FormInput, StepNavigation } from '@cashflyUI/';
-import { AppStyles, AppColors, AppSizes } from '@theme/';
+import { AppStyles } from '@theme/';
+
 
 class InvestmentObjective extends Component {
   constructor(props) {
@@ -23,18 +24,11 @@ class InvestmentObjective extends Component {
           <Row style={{ paddingHorizontal: 15, paddingTop: 40, flexDirection: 'column' }}>
 
             <Text style={[AppStyles.sceneTitle, AppStyles.lightText, { alignSelf: 'center', textAlign: 'center' }]}>
-              Qual a caracteristica do seu investimento?
+              Qual seu plano para esse investimento?
             </Text>
 
             <Spacer size={40} />
-            <FormInput
-              type={'money'}
-              theme={'dark'}
-              label={'Quero Investir R$:'}
-              placeholder={'R$ 0,00'}
-              value={this.state.sellValue}
-              onChange={sellValue => this.setState({ sellValue })}
-            />
+            
 
           </Row>
           <Row style={{ height: 64 }}>

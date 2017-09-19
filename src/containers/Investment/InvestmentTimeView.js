@@ -58,7 +58,7 @@ class InvestmentTime extends Component {
               step={this.state.step}
               maxStep={this.state.maxStep}
               prevStep={() => Actions.pop()}
-              nextStep={() => Alert.alert('teste')}
+              nextStep={() => Actions.investmentCharacteristics()}
             />
           </Row>
           <KeyboardSpacer />

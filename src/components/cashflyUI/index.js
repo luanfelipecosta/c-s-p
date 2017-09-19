@@ -3,6 +3,7 @@ import PinInput from './pinInput';
 import Button from './button';
 import NotificationModal from './notificationModal';
 import StepNavigation from './stepNavigation';
+import InvestmentTile from './investmentTile';
 
 export {
   PinInput,
@@ -10,4 +11,5 @@ export {
   Button,
   NotificationModal,
   StepNavigation,
+  InvestmentTile,
 };
