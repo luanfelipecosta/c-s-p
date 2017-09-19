@@ -68,7 +68,7 @@ const FormInput = ({ type, placeholder, onChange, value, theme, label }) => (
       <TextInputMask
         type={type}
         placeholder={placeholder}
-        placeholderTextColor={(theme === 'dark') ? '#5d5875' : 'rbga(255, 255, 255, 0.4)'}
+        placeholderTextColor={(theme === 'dark') ? '#5d5875' : 'gray'}
         style={{
           width: 280,
           height: 25,

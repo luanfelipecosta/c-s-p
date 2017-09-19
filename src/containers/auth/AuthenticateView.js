@@ -6,6 +6,8 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
+import Carousel from 'react-native-carousel';
+
 // Consts and Libs
 import { AppStyles, AppSizes, AppColors } from '@theme/';
 
@@ -16,16 +18,35 @@ import { Spacer, Text, Button } from '@ui/';
 const styles = StyleSheet.create({
   background: {
     backgroundColor: AppColors.brand.darkBackground,
-    height: AppSizes.screen.height,
-    width: AppSizes.screen.width,
   },
   logo: {
-    width: AppSizes.screen.width * 0.85,
+    width: 206,
+    height: 72,
     resizeMode: 'contain',
+    alignSelf: 'center',
+  },
+  title: {
+    color: '#fff',
+    fontSize: 20,
+    textAlign: 'center',
+    fontWeight: '500',
+    paddingHorizontal: 50,
+    marginTop: 35,
+  },
+  image: {
+    width: AppSizes.screen.width * 0.55,
+    resizeMode: 'contain',
+    height: 210,
     alignSelf: 'center',
   },
   whiteText: {
     color: '#FFF',
+  },
+  slide: {
+    width: AppSizes.screen.width,
+    height: 373,
+    paddingBottom: 40,
+    justifyContent: 'flex-end',
   },
 });
 
@@ -33,12 +54,41 @@ const styles = StyleSheet.create({
 class Authenticate extends Component {
   static componentName = 'Authenticate';
 
+  constructor() {
+    super();
+    this.state = {
+      slides: [
+        {
+          image: 'http://res.cloudinary.com/dfbcc7qin/image/upload/v1505835708/cashfly-onboarding-D-ilust_bccd5l.jpg',
+          text: 'Use sua carteira CashFly para fazer investimentos',
+        },
+        {
+          image: 'http://res.cloudinary.com/dfbcc7qin/image/upload/v1505835708/cashfly-onboarding-D-ilust_bccd5l.jpg',
+          text: 'Use sua carteira CashFly para fazer investimentos',
+        },
+      ],
+    };
+  }
   render = () => (
-    <View style={[AppStyles.container, AppStyles.container, styles.background, { justifyContent: 'space-between' }]}>
+    <View style={[styles.background, { flexGrow: 1, paddingTop: 20 }]}>
       <Image
         source={require('../../images/logo.png')}
         style={[styles.logo]}
       />
+      <Carousel width={AppSizes.screen.width} indicatorSize={15} indicatorColor={'#FFFFFF'} inactiveIndicatorColor={'#D8D8D8'} indicatorAtBottom indicatorOffset={10} animate={false}>
+        <View style={styles.slide}>
+          <Image source={require('../../images/authenticate/1.jpg')} style={[styles.image]} />
+          <Text style={styles.title}>Use sua carteira CashFly para fazer investimentos</Text>
+        </View>
+        <View style={styles.slide}>
+          <Image source={require('../../images/authenticate/2.jpg')} style={[styles.image]} />
+          <Text style={styles.title}>Receba pagamentos com sua carteira Cashfly</Text>
+        </View>
+        <View style={styles.slide}>
+          <Image source={require('../../images/authenticate/3.jpg')} style={[styles.image]} />
+          <Text style={styles.title}>Facilite o troco com sua carteira CashFly</Text>
+        </View>
+      </Carousel>
       <View>
         <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
           <View style={[AppStyles.flex1]}>
@@ -65,18 +115,12 @@ class Authenticate extends Component {
 
         <Spacer size={15} />
 
-        <Text p style={[AppStyles.textCenterAligned, styles.whiteText]}>
-          - or -
-      </Text>
-
-        <Spacer size={10} />
-
         <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
           <View style={[AppStyles.flex1]} />
           <View style={[AppStyles.flex2]}>
             <Button
               small
-              title={'Skip'}
+              title={'Esqueceu a senha?'}
               color={AppColors.brand.secondary}
               onPress={Actions.app}
               raised={false}

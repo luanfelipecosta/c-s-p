@@ -31,19 +31,22 @@ class InvestmentCharacteristics extends Component {
                 onPress={() => Actions.investmentSimulation({ title: 'Investimento conservador' })}
                 title={'Investimento'}
                 bigTitle={'conservador'}
+                imageURL={'https://res.cloudinary.com/dfbcc7qin/image/upload/v1505835707/cashfly-investimento-conservador-ilust_klocln.jpg'}
                 description={'Retornos consistentes privilegiando a segurança'}
               />
               <InvestmentTile
                 onPress={() => Actions.investmentSimulation({ title: 'Investimento moderado' })}
                 title={'Investimento'}
                 bigTitle={'moderado'}
-                description={'Retornos consistentes privilegiando a segurança'}
+                imageURL={'https://res.cloudinary.com/dfbcc7qin/image/upload/v1505835709/cashfly-investimento-arrojado_ae9swd.jpg'}
+                description={'Equilibrio entre segurança e rentabilidade'}
               />
               <InvestmentTile
                 onPress={() => Actions.investmentSimulation({ title: 'Investimento arrojado' })}
                 title={'Investimento'}
                 bigTitle={'arrojado'}
-                description={'Retornos consistentes privilegiando a segurança'}
+                imageURL={'https://res.cloudinary.com/dfbcc7qin/image/upload/v1505835707/cashfly-investimento-moderado-ilust_rtypmk.jpg'}
+                description={'Privilegia rentabilidade, tem maior possibilidade de variações'}
               />
               <Spacer size={20} />
             </ScrollView>

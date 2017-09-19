@@ -23,15 +23,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-const stepNavigation = ({ prevStep, nextStep, step, maxStep, firstStep, lastStep, disabledPrev, disabledNext }) => (
+const stepNavigation = ({ prevStep, terms, nextStep, step, maxStep, firstStep, lastStep, disabledPrev, disabledNext }) => (
   <View style={styles.footer}>
 
     <TouchableOpacity onPress={() => firstStep || disabledPrev ? {} : prevStep()}>
       <Icon style={styles.arrow} name={'ios-arrow-round-back'} type={'ionicon'} size={50} color={firstStep || disabledPrev ? '#5d5875' : '#fff'} />
     </TouchableOpacity>
 
-    <Text style={styles.counter} > {step}/{maxStep} </Text>
-
+    {(step && maxStep) && <Text style={styles.counter} > {step}/{maxStep} </Text>}
+    {!!terms && <Text style={{ color: '#5d5875', fontWeight: '700', flexGrow: 9, textAlign: 'center' }} > TERMOS </Text>}
     <TouchableOpacity onPress={() => lastStep || disabledNext ? {} : nextStep()}>
       <Icon style={styles.arrow} name={'ios-arrow-round-forward'} type={'ionicon'} size={50} color={lastStep || disabledNext ? '#5d5875' : '#fff'} />
     </TouchableOpacity>

@@ -14,8 +14,8 @@ const cashfly = {
 const brand = {
   brand: {
     primary: '#3D30E3',
-    secondary: '#9ED131',
-    accent: '#9ED131',
+    secondary: '#41FF89',
+    accent: '#41FF89',
     light: '#A3A3A3',
     darkBackground: '#0A0333',
   },
