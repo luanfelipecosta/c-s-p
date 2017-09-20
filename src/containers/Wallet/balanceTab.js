@@ -12,19 +12,22 @@ class BalanceTab extends Component {
     this.state = {
       dataBalance: [
         {
-          title: 'Saldo de trocos',
-          value: '109,00',
+          title: 'Trocos Enviados',
+          value: '1693,00',
           month: 'AGO',
+          imageURL: 'https://res.cloudinary.com/dfbcc7qin/image/upload/v1505835707/cashfly-saldo-troco-enviado-ilust_mk5z1w.jpg',
         },
         {
-          title: 'Saldo de pagamentos',
-          value: '5011,40',
+          title: 'Pagamentos Recebidos',
+          value: '522011,40',
           month: 'AGO',
+          imageURL: 'https://res.cloudinary.com/dfbcc7qin/image/upload/v1505835709/cashfly-saldo-de-pagamentos-ilust_omwjco.jpg',
         },
         {
           title: 'Saldo Investido',
           value: '19.213,00',
           month: 'AGO',
+          imageURL: 'https://res.cloudinary.com/dfbcc7qin/image/upload/v1505835709/cashfly-saldo-de-investimento-ilust_gglavp.jpg',
         },
       ],
     };
@@ -40,6 +43,7 @@ class BalanceTab extends Component {
             title={balanco.title}
             month={balanco.month}
             value={balanco.value}
+            imageURL={balanco.imageURL}
           />
         ))}
 

@@ -48,6 +48,16 @@ const navbarPropsTabs = {
   },
 };
 
+const navbarPropsTabsWithTabs = {
+  ...AppConfig.navbarProps,
+  renderLeftButton: () => <Icon onPress={() => Actions.homePage()} name={'arrow-back'} color={'#fff'} size={30} />,
+  sceneStyle: {
+    ...AppConfig.navbarProps.sceneStyle,
+    paddingBottom: AppSizes.tabbarHeight,
+  },
+};
+
+
 const navbarPropsTabsHome = {
   ...navbarPropsTabs,
   renderLeftButton: () => <NavbarMenuButton />,
@@ -87,7 +97,7 @@ const scenes = (
     />
 
     <Scene
-      {...navbarPropsTabs}
+      {...navbarPropsTabsWithTabs}
       key={'wallet'}
       component={Wallet}
     />
@@ -145,20 +155,11 @@ const scenes = (
         title={'Enviar troco'}
       />
     </Scene>
-
-    <Scene
-      key={'error'}
-      {...navbarPropsTabs}
-      title={'Example Error'}
-      component={Error}
-      icon={props => TabIcon({ ...props, type: 'entypo', icon: 'shopping-bag' })}
-      analyticsDesc={'Error: Example Error'}
-    />
     <Scene
       key={'investment'}
       title={'Style Guide'}
       hideTabBar
-      icon={props => TabIcon({ ...props, type: 'material-community', icon: 'bank' })}
+      icon={props => TabIcon({ ...props, type: 'entypo', icon: 'shopping-bag' })}
       analyticsDesc={'StyleGuide: Style Guide'}
     >
       <Scene
@@ -212,6 +213,15 @@ const scenes = (
       />
 
     </Scene>
+    <Scene
+      key={'error'}
+      {...navbarPropsTabs}
+      title={'Example Error'}
+      component={Error}
+      icon={props => TabIcon({ ...props, type: 'material-community', icon: 'bank' })}
+      analyticsDesc={'Error: Example Error'}
+    />
+
   </Scene>
 );
 

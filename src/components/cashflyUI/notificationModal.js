@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     zIndex: 7,
     marginTop: 22,
-    width: 300,
+    width: 303,
     alignSelf: 'center',
     borderWidth: 1.5,
     borderColor: '#8b8b8b',
@@ -24,12 +24,13 @@ const styles = StyleSheet.create({
   modalTitle: {
     fontWeight: '500',
     fontSize: 24,
-    color: 'rgba(255, 255, 255, 0.7)',
+    color: 'rgba(255, 255, 255, 0.8)',
+    backgroundColor: 'transparent',
   },
   content: {
     backgroundColor: '#fff',
     padding: 20,
-    minHeight: 50
+    minHeight: 50,
   },
 });
 const NotificationModal = props => (
@@ -48,9 +49,9 @@ const NotificationModal = props => (
       <View style={styles.modalContainer}>
         <TouchableWithoutFeedback>
           <View>
-            <View style={[styles.modalImage, { width: 300, height: 150, backgroundColor: 'gray' }]}>
+            <Image source={{ uri: props.imageURL }} style={[styles.modalImage, { width: 300, height: 150, backgroundColor: 'gray' }]}>
               <Text style={styles.modalTitle}> {props.title} </Text>
-            </View>
+            </Image>
             <View style={styles.content} >
               {props.content}
             </View>
@@ -59,6 +60,6 @@ const NotificationModal = props => (
       </View>
     </TouchableOpacity>
   </Modal>
-    );
+);
 
 export default NotificationModal;

@@ -9,7 +9,6 @@ import { AppStyles, AppSizes, AppColors } from '@theme/';
 // Scenes
 import Authenticate from '@containers/auth/AuthenticateView';
 import LoginForm from '@containers/auth/Forms/LoginContainer';
-import SignUpForm from '@containers/auth/Forms/SignUpContainer';
 import ResetPasswordForm from '@containers/auth/Forms/ResetPasswordContainer';
 import UpdateProfileForm from '@containers/auth/Forms/UpdateProfileContainer';
 
@@ -115,8 +114,6 @@ const scenes = (
         key={'onBoardingAccountCreated'}
         component={OnBoardingAccountCreated}
       />
-      
-
     </Scene>
     <Scene
       {...AppConfig.navbarProps}

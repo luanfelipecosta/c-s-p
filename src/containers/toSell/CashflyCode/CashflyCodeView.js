@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, TouchableHighlight } from 'react-native';
+import { Text, View, StyleSheet, TouchableHighlight, Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     flexDirection: 'column',
-    paddingTop: 35,
+    paddingBottom: 35,
+    justifyContent: 'center',
   },
   code: {
     fontSize: 42,
@@ -54,6 +55,7 @@ class CashflyCodeView extends Component {
           setModalVisible={visible => this.setModalVisible(visible)}
           visible={this.state.modalVisible}
           title={'Pagamento recebido!'}
+          imageURL={'https://res.cloudinary.com/dfbcc7qin/image/upload/v1505835708/cashfly-pagamento-recebido_gdaufx.jpg'}
           content={
             <View>
               <View style={{ flexDirection: 'row', paddingVertical: 15, borderBottomColor: '#aeaeae', borderBottomWidth: 0.5 }}>
@@ -71,7 +73,7 @@ class CashflyCodeView extends Component {
           }
         />
         <TouchableHighlight onPress={() => this.setModalVisible(true)} >
-          <Row style={{ backgroundColor: 'lightyellow', height: 358 }} />
+          <Image source={{ uri: 'https://res.cloudinary.com/dfbcc7qin/image/upload/v1505835709/cashfly-cashcode-ilust_xxbkuk.jpg' }} style={{ height: 358 }} />
         </TouchableHighlight>
         <Row style={styles.contentContainer} >
           <Text style={styles.title}>  Mostre o codigo para o Comprador: </Text>

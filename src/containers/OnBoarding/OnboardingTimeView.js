@@ -54,8 +54,7 @@ class OnboardingTime extends Component {
           </Row>
           <Row style={{ height: 64 }}>
             <StepNavigation
-              step={this.state.step}
-              maxStep={this.state.maxStep}
+              terms
               prevStep={() => Actions.pop()}
               nextStep={() => Actions.onBoardingBankSelect()}
             />

@@ -24,6 +24,7 @@ class CashflyCodeView extends Component {
           setModalVisible={visible => this.setModalVisible(visible)}
           visible={this.state.modalVisible}
           title={'Troco Enviado!'}
+          imageURL={'https://res.cloudinary.com/dfbcc7qin/image/upload/v1505835709/cashfly-enviar-troco_dc4rij.jpg'}
           content={
             <View>
               <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingVertical: 15 }}>

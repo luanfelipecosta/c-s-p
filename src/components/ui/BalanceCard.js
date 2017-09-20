@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Image} from 'react-native';
 import { Avatar } from 'react-native-elements';
 import PropTypes from 'prop-types';
 
@@ -12,14 +12,14 @@ const styles = StyleSheet.create({
     paddingRight: 10,
   },
 });
-const BalanceCard = ({ title, value, month }) => (
+const BalanceCard = ({ title, value, month, imageURL }) => (
   <View style={{ backgroundColor: 'lightgray', flexDirection: 'column', marginBottom: 15 }}>
-    <View style={{ backgroundColor: 'darkgray', height: 150 }} />
-
+    <Image source={{ uri: imageURL }} style={{ backgroundColor: 'darkgray', height: 150 }} />
+  
     <View style={{ backgroundColor: 'white', flexDirection: 'row', height: 100, paddingTop: 25, paddingHorizontal: 20 }} >
 
-      <View style={{ flex: 1 }}>
-        <Text style={{fontWeight: '500' }}>{title}: </Text>
+      <View style={{ width: 200 }}>
+        <Text style={{ fontWeight: '500' }}>{title}: </Text>
         <Text style={{ marginTop: 5, fontSize: 18, fontWeight: '700', fontFamily: 'HelveticaNeue' }}>R$ {value}</Text>
       </View>
 

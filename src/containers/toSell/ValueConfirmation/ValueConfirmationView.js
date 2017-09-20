@@ -51,6 +51,7 @@ class ValueConfirmationView extends Component {
             setModalVisible={visible => this.setModalVisible(visible)}
             visible={this.state.modalVisible}
             title={'CPF na nota?'}
+            imageURL={'https://res.cloudinary.com/dfbcc7qin/image/upload/v1505835711/cashfly-cpf-na-nota_pxjjnc.jpg'}
             content={
               <View>
                 <Text style={{ color: '#626262' }}>Verifique com seu cliente se CPF na nota é necessário, pressione adicionar </Text>
