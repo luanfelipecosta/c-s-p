@@ -39,7 +39,7 @@ class OnBoardingHomeView extends Component {
 
             <Spacer size={40} />
             <FormInput
-              type={'custom'}
+              type={'text'}
               label={'Digite sua razão social'}
               placeholder={'Nome da razão social'}
               value={this.state.social}
