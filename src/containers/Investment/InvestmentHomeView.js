@@ -26,7 +26,7 @@ class InvestmentHome extends Component {
 
             <Spacer size={40} />
             <FormInput
-              type={'custom'}
+              type={'text'}
               label={'Digite seu nome:'}
               placeholder={'Como podemos te chamar?'}
               value={this.state.sellValue}

@@ -26,7 +26,7 @@ class OnBoardingNicknameView extends Component {
 
             <Spacer size={40} />
             <FormInput
-              type={'custom'}
+              type={'text'}
               label={'Apelido CashFly'}
               placeholder={'@nomeDoSeuNegocio'}
               value={this.state.sellValue}
