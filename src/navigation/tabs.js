@@ -21,8 +21,8 @@ import HomePage from '@containers/HomePage/HomePageView';
 
 import Wallet from '@containers/Wallet/walletView';
 
-import SellValue from '@containers/toSell/SellValue/SellValueView';
-import ValueConfirmation from '@containers/toSell/ValueConfirmation/ValueConfirmationView';
+import SellValue from '@containers/toSell/SellValue/SellValueContainer';
+import ValueConfirmation from '@containers/toSell/ValueConfirmation/ValueConfirmationContainer';
 import SellCostumerCPF from '@containers/toSell/SellCostumerCPF/SellCostumerCPFView';
 import SellCashflyCode from '@containers/toSell/CashflyCode/CashflyCodeView';
 

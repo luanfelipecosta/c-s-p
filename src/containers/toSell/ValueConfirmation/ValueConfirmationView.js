@@ -22,18 +22,30 @@ const styles = StyleSheet.create({
     fontSize: 56,
     alignSelf: 'center',
   },
-  button: { backgroundColor: 'blue', height: 36, paddingBottom: 10, paddingHorizontal: 15, justifyContent: 'flex-end', marginRight: 10 },
+  button: {
+    backgroundColor: 'blue',
+    height: 36,
+    paddingBottom: 10,
+    paddingHorizontal: 15,
+    justifyContent: 'flex-end',
+    marginRight: 10,
+  },
+
 });
 
 class ValueConfirmationView extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       modalVisible: false,
       CPFByPassed: false,
     };
   }
-
+  get convertedSellValue() {
+    let v = this.props.sellValue;
+    v = `R$ ${ v.replace('.', ',')}`;
+    return v;
+  }
   setModalVisible(visible) {
     this.setState({ modalVisible: visible });
   }
@@ -67,7 +79,7 @@ class ValueConfirmationView extends Component {
           <Row style={styles.mainWrapper}>
             <Text style={AppStyles.semiBoldText}> Valor da venda: </Text>
             <View style={styles.sellValueContainer}>
-              <Text style={styles.sellValue}> {this.props.sellValue || 'R$ 0,00'} </Text>
+              <Text style={styles.sellValue}> {this.convertedSellValue || 'R$ 0,00'} </Text>
             </View>
           </Row>
           <Row style={{ height: 52, paddingVertical: 10, paddingRight: 15, justifyContent: 'flex-end', borderTopColor: 'lightgray', borderTopWidth: 1 }} >

@@ -25,14 +25,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     alignSelf: 'center',
   },
-  title: {
-    color: '#fff',
-    fontSize: 20,
-    textAlign: 'center',
-    fontWeight: '500',
-    paddingHorizontal: 50,
-    marginTop: 35,
-  },
+  title: { color: '#fff', fontSize: 20, textAlign: 'center', fontWeight: '500', paddingHorizontal: 50, marginTop: 35 },
   image: {
     width: AppSizes.screen.width * 0.55,
     resizeMode: 'contain',
@@ -78,15 +71,15 @@ class Authenticate extends Component {
       <Carousel width={AppSizes.screen.width} indicatorSize={15} indicatorColor={'#FFFFFF'} inactiveIndicatorColor={'#D8D8D8'} indicatorAtBottom indicatorOffset={10} animate={false}>
         <View style={styles.slide}>
           <Image source={require('../../images/authenticate/1.jpg')} style={[styles.image]} />
-          <Text style={styles.title}>Use sua carteira CashFly para fazer investimentos</Text>
+          <Text style={{ color: '#fff', fontSize: 20, textAlign: 'center', fontWeight: '500', paddingHorizontal: 50, marginTop: 35 }}>Use sua carteira CashFly para fazer investimentos</Text>
         </View>
         <View style={styles.slide}>
           <Image source={require('../../images/authenticate/2.jpg')} style={[styles.image]} />
-          <Text style={styles.title}>Receba pagamentos com sua carteira Cashfly</Text>
+          <Text style={{ color: '#fff', fontSize: 20, textAlign: 'center', fontWeight: '500', paddingHorizontal: 50, marginTop: 35 }}>Receba pagamentos com sua carteira Cashfly</Text>
         </View>
         <View style={styles.slide}>
           <Image source={require('../../images/authenticate/3.jpg')} style={[styles.image]} />
-          <Text style={styles.title}>Facilite o troco com sua carteira CashFly</Text>
+          <Text style={{ color: '#fff', fontSize: 20, textAlign: 'center', fontWeight: '500', paddingHorizontal: 50, marginTop: 35 }}>Facilite o troco com sua carteira CashFly</Text>
         </View>
       </Carousel>
       <View>

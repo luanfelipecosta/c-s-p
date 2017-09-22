@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Button, TouchableHighlight } from 'react-native';
+import { Text, View, Button, Alert, TouchableHighlight } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
@@ -12,6 +12,12 @@ class SellValueView extends Component {
     super(props);
     this.state = {};
   }
+  handleSubmit(val = 'R$ 0,00') {
+    val = val.substr(2).replace('.', '').replace(',', '.');
+    this.props.startSell(val);
+    Actions.sellValueConfirmation();
+  }
+
 
   render() {
     return (
@@ -33,7 +39,7 @@ class SellValueView extends Component {
 
           </Row>
           <Row style={AppStyles.fowardButtonContainer}>
-            <TouchableHighlight style={AppStyles.fowardButton} onPress={() => Actions.sellValueConfirmation({ sellValue: this.state.sellValue })} >
+            <TouchableHighlight style={AppStyles.fowardButton} onPress={() => this.handleSubmit(this.state.sellValue)} >
               <Text style={{ fontWeight: '500' }}> PROSSEGUIR </Text>
             </TouchableHighlight>
           </Row>
