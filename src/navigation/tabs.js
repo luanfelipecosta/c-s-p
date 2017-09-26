@@ -24,7 +24,7 @@ import Wallet from '@containers/Wallet/walletView';
 import SellValue from '@containers/toSell/SellValue/SellValueContainer';
 import ValueConfirmation from '@containers/toSell/ValueConfirmation/ValueConfirmationContainer';
 import SellCostumerCPF from '@containers/toSell/SellCostumerCPF/SellCostumerCPFView';
-import SellCashflyCode from '@containers/toSell/CashflyCode/CashflyCodeView';
+import SellCashflyCode from '@containers/toSell/CashflyCode/CashflyCodeContainer';
 
 import InvestmentHome from '@containers/Investment/InvestmentHomeView';
 import InvestmentUserAge from '@containers/Investment/InvestmentUserAgeView';

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, TouchableHighlight, Image } from 'react-native';
+import { Text, View, StyleSheet, TouchableHighlight, Image, Alert } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
@@ -25,15 +25,16 @@ const styles = StyleSheet.create({
 
 class CashflyCodeView extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { modalVisible: false };
     this.applyLetterSpacing = this.applyLetterSpacing.bind(this);
   }
 
   componentWillMount() {
-    const token = this.getToken(100000, 199999);
-    this.setState({ token });
+    let token = this.getToken(100000, 199999);
+    token = Number(token);
+    this.props.saveCashflyCode(token);
   }
 
   getToken(min, max) {
@@ -41,13 +42,23 @@ class CashflyCodeView extends Component {
     return randomToken;
   }
 
-  applyLetterSpacing(string, count = 2) {
-    return string.split('').join('\u200A'.repeat(count));
+  applyLetterSpacing(string = '000000', count = 2) {
+    const t = string.toString();
+    return t.split('').join('\u200A'.repeat(count));
   }
-  setModalVisible(visible) {
-    this.setState({ modalVisible: visible });
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.sellValue && nextProps.cashflyCode) {
+      this.props.publishSell(
+        { sellValue: nextProps.sellValue, cashflyCode: nextProps.cashflyCode },
+      );
+    } else {
+      console.log('missing props');
+      console.log(this.props);
+    }
   }
-
+  componentWillUnmount() {
+    Alert.alert('component vai desmonta powrra');
+  }    
   render() {
     return (
       <Grid>
@@ -78,7 +89,7 @@ class CashflyCodeView extends Component {
         <Row style={styles.contentContainer} >
           <Text style={styles.title}>  Mostre o codigo para o Comprador: </Text>
           <Spacer size={40} />
-          <Text style={styles.code}> {this.applyLetterSpacing(this.state.token, 10)} </Text>
+          <Text style={styles.code}> {this.applyLetterSpacing(this.props.cashflyCode, 10)} </Text>
         </Row>
       </Grid>
     );

@@ -14,7 +14,8 @@ class SellValueView extends Component {
   }
   handleSubmit(val = 'R$ 0,00') {
     val = val.substr(2).replace('.', '').replace(',', '.');
-    this.props.startSell(val);
+    const numVal = Number(val);
+    this.props.startSell(numVal);
     Actions.sellValueConfirmation();
   }
 

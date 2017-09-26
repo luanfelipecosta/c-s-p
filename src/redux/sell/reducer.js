@@ -3,16 +3,24 @@
 const initialState = {};
 
 export default function sellReducer(state = initialState, action) {
-  console.log('caiu nos reducers do sell ');
   switch (action.type) {
+    case 'SELL_STARTED': {
+      if (action.payload) {
+        return {
+          ...state,
+          sellValue: action.payload,
+        };
+      }
+      return {};
+    }
     case 'SELL_CODE_GENERATED': {
       if (action.payload) {
         return {
           ...state,
-          value: action.payload,
+          cashflyCode: action.payload,
         };
       }
-      return {};
+      break;
     }
     default:
       return state;

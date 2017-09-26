@@ -42,7 +42,7 @@ class ValueConfirmationView extends Component {
     };
   }
   get convertedSellValue() {
-    let v = this.props.sellValue;
+    let v = this.props.sellValue.toString();
     v = `R$ ${ v.replace('.', ',')}`;
     return v;
   }

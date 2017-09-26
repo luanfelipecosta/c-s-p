@@ -10,7 +10,7 @@ import ValueConfirmationRender from './ValueConfirmationView';
 
 // What data from the store shall we send to the component?
 const mapStateToProps = state => (
-  { sellValue: state.sell.value }
+  { sellValue: state.sell.sellValue }
 );
 
 // Any actions to map to the component?
