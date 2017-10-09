@@ -46,25 +46,26 @@ class CashflyCodeView extends Component {
     const t = string.toString();
     return t.split('').join('\u200A'.repeat(count));
   }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.sellValue && nextProps.cashflyCode) {
       this.props.publishSell(
-        { sellValue: nextProps.sellValue, cashflyCode: nextProps.cashflyCode },
+        { sellValue: nextProps.sellValue, cashflyCode: nextProps.cashflyCode, status: 'WAITING_PAYMENT' },
       );
     } else {
       console.log('missing props');
       console.log(this.props);
     }
   }
-  componentWillUnmount() {
-    Alert.alert('component vai desmonta powrra');
-  }    
+  componentDidUpdate() {
+    this.props.getSellStatus(this.props.cashflyCode);
+  }
   render() {
     return (
       <Grid>
         <NotificationModal
-          setModalVisible={visible => this.setModalVisible(visible)}
-          visible={this.state.modalVisible}
+          setModalVisible={() => this.props.closeModal()}
+          visible={this.props.paymentModal || false}
           title={'Pagamento recebido!'}
           imageURL={'https://res.cloudinary.com/dfbcc7qin/image/upload/v1505835708/cashfly-pagamento-recebido_gdaufx.jpg'}
           content={
@@ -73,21 +74,21 @@ class CashflyCodeView extends Component {
                 <Text style={{ fontWeight: '700' }}>Cliente: </Text><Text>@usuario </Text>
               </View>
               <View style={{ flexDirection: 'row', paddingVertical: 15 }}>
-                <Text style={{ fontWeight: '700' }}>Valor: </Text><Text> R$ 100,00 </Text>
+                <Text style={{ fontWeight: '700' }}>Valor: </Text><Text> R$ {this.props.sellValue} </Text>
               </View>
 
               <View style={[AppStyles.row, { justifyContent: 'flex-end' }]}>
-                <Button text={'DETALHES'} onPress={() => { this.setModalVisible(false); Actions.wallet(); }} />
-                <Button text={'HOME'} onPress={() => { this.setModalVisible(false); Actions.homePage(); }} />
+                <Button text={'DETALHES'} onPress={() => { this.props.closeModal(); Actions.wallet(); }} />
+                <Button text={'HOME'} onPress={() => { this.props.closeModal(); Actions.homePage(); }} />
               </View>
             </View>
           }
         />
-        <TouchableHighlight onPress={() => this.setModalVisible(true)} >
+        <TouchableHighlight onPress={() => true} >
           <Image source={{ uri: 'https://res.cloudinary.com/dfbcc7qin/image/upload/v1505835709/cashfly-cashcode-ilust_xxbkuk.jpg' }} style={{ height: 358 }} />
         </TouchableHighlight>
         <Row style={styles.contentContainer} >
-          <Text style={styles.title}>  Mostre o codigo para o Comprador: </Text>
+          <Text style={styles.title}> {this.props.cashflyCode} Mostre o codigo para o Comprador: </Text>
           <Spacer size={40} />
           <Text style={styles.code}> {this.applyLetterSpacing(this.props.cashflyCode, 10)} </Text>
         </Row>

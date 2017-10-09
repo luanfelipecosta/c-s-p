@@ -13,6 +13,8 @@ const mapStateToProps = state => (
   {
     cashflyCode: state.sell.cashflyCode,
     sellValue: state.sell.sellValue,
+    paidNotification: state.sell.paidNotification,
+    paymentModal: state.sell.paymentModal,
   }
 );
 
@@ -20,6 +22,8 @@ const mapStateToProps = state => (
 const mapDispatchToProps = {
   saveCashflyCode: code => SellActions.saveCashflyCode(code),
   publishSell: newSell => SellActions.publishSell(newSell),
+  getSellStatus: pin => SellActions.getSellStatus(pin),
+  closeModal: () => SellActions.closeModal(),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CashflyCodeRender);

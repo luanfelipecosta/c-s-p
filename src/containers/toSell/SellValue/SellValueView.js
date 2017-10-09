@@ -40,7 +40,7 @@ class SellValueView extends Component {
 
           </Row>
           <Row style={AppStyles.fowardButtonContainer}>
-            <TouchableHighlight style={AppStyles.fowardButton} onPress={() => this.handleSubmit(this.state.sellValue)} >
+            <TouchableHighlight style={AppStyles.fowardButton} onPress={() => this.handleSubmit(this.state.sellValue || 0.00)} >
               <Text style={{ fontWeight: '500' }}> PROSSEGUIR </Text>
             </TouchableHighlight>
           </Row>

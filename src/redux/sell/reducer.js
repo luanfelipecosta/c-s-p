@@ -22,6 +22,22 @@ export default function sellReducer(state = initialState, action) {
       }
       break;
     }
+    case 'PAID_STATUS_SUCCESS': {
+      if (action.payload) {
+        return {
+          ...state,
+          status: action.payload,
+          paymentModal: true,
+        };
+      }
+      break;
+    }
+    case 'CLOSE_MODAL': {
+      return {
+        ...state,
+        paymentModal: false,
+      };
+    }
     default:
       return state;
   }
