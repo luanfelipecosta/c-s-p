@@ -50,15 +50,6 @@ export const getSellStatus = (pin) => {
         }
       },
     );
-    // .then(
-    //   (snap) => {
-    //     const sell = snap.val();
-    //     dispatch({ type: 'SELL_UPDATED_SUCCESS', payload: sell });
-    //   },
-    //   (error) => {
-    //     dispatch({ type: 'GET_SELL_FAILURE', payload: error });
-    //   },
-    // );
   };
 };
 

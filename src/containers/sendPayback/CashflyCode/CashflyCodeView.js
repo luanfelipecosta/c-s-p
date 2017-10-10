@@ -4,6 +4,8 @@ import { Actions } from 'react-native-router-flux';
 import { AppStyles, AppColors, AppSizes } from '@theme/';
 import { Spacer } from '@ui/';
 import { PinInput, Button, NotificationModal } from '@cashflyUI/';
+import { ErrorMessages, Firebase, FirebaseRef } from '@constants/';
+
 
 class CashflyCodeView extends Component {
   constructor() {
@@ -13,8 +15,34 @@ class CashflyCodeView extends Component {
   setModalVisible(visible) {
     this.setState({ modalVisible: visible });
   }
+
   loadAndGo() {
-    this.setState({ loading: true }, () => setTimeout(() => this.setState({ loading: false, modalVisible: true }), 1000));
+    this.setState({ loading: true },
+      () => {
+
+        let amount = this.props.paybackAmount;
+        let pin = this.state.pin;
+        const payload = {};
+
+
+        amount = String(amount).substr(2);
+        amount = amount.replace(',', '.');
+        amount = Number(amount);
+        pin = Number(pin);
+
+        const ref = FirebaseRef.child('available_paybacks').orderByChild('pin').equalTo(pin);
+        
+        ref.once('value')
+        .then((snap) => {
+          let val = snap.val();
+          let key = Object.keys(val);
+          key = key[0];
+
+          FirebaseRef.child('available_paybacks/' + key).update({ amount });
+          debugger;
+        });
+        setTimeout(() => this.setState({ loading: false, modalVisible: true }), 1000);
+      });
   }
 
   render() {
@@ -28,7 +56,7 @@ class CashflyCodeView extends Component {
           content={
             <View>
               <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingVertical: 15 }}>
-                <Text style={{ color: '#616161' }}>Você enviou troco de: </Text><Text style={{ fontSize: 20 }}> R$ 0,50 </Text>
+                <Text style={{ color: '#616161' }}>Você enviou troco de: </Text><Text style={{ fontSize: 20 }}> {this.props.paybackAmount || 'R$ 0,50'}</Text>
               </View>
               <Spacer size={10} />
               <View style={[AppStyles.row, { justifyContent: 'flex-end' }]}>

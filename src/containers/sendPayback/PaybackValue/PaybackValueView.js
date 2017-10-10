@@ -36,7 +36,7 @@ class PaybackValueView extends Component {
             <Text style={{}}>R$ 100,00 </Text>
           </Row>
           <Row style={AppStyles.fowardButtonContainer}>
-            <TouchableHighlight style={AppStyles.fowardButton} onPress={() => Actions.paybackCashflyCode({ sellValue: this.state.sellValue })} >
+            <TouchableHighlight style={AppStyles.fowardButton} onPress={() => Actions.paybackCashflyCode({ paybackAmount: this.state.sellValue })} >
               <Text style={{ fontWeight: '500' }}> PROSSEGUIR </Text>
             </TouchableHighlight>
           </Row>
