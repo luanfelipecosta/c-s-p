@@ -39,7 +39,6 @@ class CashflyCodeView extends Component {
           key = key[0];
 
           FirebaseRef.child('available_paybacks/' + key).update({ amount });
-          debugger;
         });
         setTimeout(() => this.setState({ loading: false, modalVisible: true }), 1000);
       });
